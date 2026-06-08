@@ -484,8 +484,10 @@
 
   /* ---------- responsive ---------- */
   @media (max-width: 900px) {
+    body { overflow-x: hidden; }
     section { padding: 76px 0; }
     .wrap { padding: 0 22px; }
+    .nav-inner { padding: 13px 22px; }
     .manifesto-grid { grid-template-columns: 1fr; gap: 40px; }
     .manifesto-img { aspect-ratio: 16/10; max-width: 420px; }
     .tl-item { grid-template-columns: 1fr; gap: 8px; }
@@ -504,8 +506,14 @@
   }
   @media (max-width: 520px) {
     body { font-size: 17px; }
-    .nav-logo img { width: 200px; }
-    .step { padding: 30px 26px; }
+    .nav-inner { padding: 11px 18px; gap: 12px; }
+    .nav-logo img { width: min(170px, 52vw); }
+    .nav .btn { padding: 11px 16px; font-size: 13px; letter-spacing: 0; }
+    .wrap { padding: 0 18px; }
+    .hero { padding: 92px 0 78px; }
+    .step { padding: 30px 24px; }
+    .tl-note { padding: 30px 24px; }
+    .optin { padding: 38px 22px; }
   }
 </style>
 </head>
@@ -528,7 +536,7 @@
       <div class="hero-sub">Donna Diamante</div>
       <p class="hero-tag">&ldquo;Quando la luce ci incontra, brilliamo insieme.&rdquo;</p>
       <p class="hero-meta">
-        <span class="v">Messina &mdash; 13 Giugno 2026</span><br>
+        <span class="v">Messina &mdash; 30 Giugno 2026</span><br>
         Teatro Vittorio Emanuele II
       </p>
       <p class="hero-price">a partire da <b>129&euro;</b> a persona</p>
@@ -598,15 +606,15 @@
       <div class="quotes">
         <div class="quote">
           <p>&ldquo;Sono tornata a casa diversa.&rdquo;</p>
-          <span class="who">Partecipante &middot; Abano</span>
+          <span class="who">Rossana &middot; Abano</span>
         </div>
         <div class="quote">
           <p>&ldquo;Non sapevo cosa aspettarmi. Ora so che ci torner&ograve;.&rdquo;</p>
-          <span class="who">Partecipante &middot; Abano</span>
+          <span class="who">Carla &middot; Abano</span>
         </div>
         <div class="quote">
           <p>&ldquo;Sono arrivata da sola. Sono ripartita con delle amiche.&rdquo;</p>
-          <span class="who">Partecipante &middot; Abano</span>
+          <span class="who">Maria &middot; Abano</span>
         </div>
       </div>
       <div class="quote-cta">
@@ -787,7 +795,7 @@
       <div style="margin-top:42px;">
         <a class="btn btn-gold btn-lg" href="prenota.html">Prenota ora</a>
       </div>
-      <p class="countdown">Mancano <b data-countdown>&mdash;</b> giorni al 13 giugno</p>
+      <p class="countdown">Mancano <b data-countdown>&mdash;</b> giorni al 30 giugno</p>
     </div>
   </section>
 
@@ -805,7 +813,7 @@
             <a href="#movimento">Donna Diamante 2026</a>
             <a href="#partecipare">Come partecipare</a>
             <span>Teatro Vittorio Emanuele II</span>
-            <span>Messina &middot; 13 Giugno 2026</span>
+            <span>Messina &middot; 30 Giugno 2026</span>
           </div>
           <div class="foot-col">
             <h4>Contatti</h4>
@@ -824,7 +832,7 @@
 
   <script>
     (function () {
-      var target = new Date(2026, 5, 13, 0, 0, 0); // 13 June 2026
+      var target = new Date(2026, 5, 30, 0, 0, 0); // 30 June 2026
       function update() {
         var now = new Date();
         var diff = target - now;

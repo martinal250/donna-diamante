@@ -275,18 +275,34 @@
     .pline { width: 16px; margin: 0 8px; }
   }
   @media (max-width: 760px) {
+    body { overflow-x: hidden; }
     .step-section { padding: 64px 0; }
     .wrap { padding: 0 20px; }
-    .seatmap, .form-card { padding: 26px; }
+    .seatmap, .form-card { padding: 26px 20px; }
     .stage { max-width: 100%; }
+    .zone-legend { grid-template-columns: 1fr; gap: 10px; }
+    .seatchart { gap: 18px; }
+    .seat { width: 24px; height: 24px; }
+    .seat-states { gap: 16px; }
     .seat-controls { flex-direction: column; align-items: stretch; }
+    .seat-controls .qty-note { width: auto !important; max-width: 100%; font-size: 16px !important; }
     .minisum { text-align: left; }
     .addon { grid-template-columns: 1fr; }
     .addon-img { min-height: 170px; }
-    .addon-toggle { padding: 0 30px 26px; }
+    .addon-toggle { padding: 0 26px 26px; justify-content: flex-start; }
     .form-grid { grid-template-columns: 1fr; }
-    .summary { padding: 30px 26px; }
+    .summary { padding: 30px 24px; }
     .sum-total .r { font-size: 42px; }
+  }
+  @media (max-width: 520px) {
+    .head-inner { padding: 12px 16px; gap: 10px; }
+    .head-logo img { width: min(152px, 44vw); }
+    .pdot { width: 28px; height: 28px; font-size: 15px; }
+    .pline { width: 8px; margin: 0 5px; }
+    .title { font-size: clamp(30px, 8.5vw, 42px); }
+    .seatmap, .form-card { padding: 22px 14px; }
+    .seat { width: 23px; height: 23px; }
+    .guest-head .gwho { font-size: 22px; }
   }
 </style>
 </head>
