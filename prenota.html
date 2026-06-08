@@ -140,7 +140,7 @@
 
   /* seat chart */
   .chart-hint { text-align: center; font-size: 13.5px; color: var(--ink-soft); letter-spacing: 0.02em; margin: 0 0 18px; }
-  .seatchart { display: flex; flex-direction: column; gap: 22px; align-items: center; overflow-x: auto; padding-bottom: 8px; }
+  .seatchart { display: flex; flex-direction: column; gap: 22px; align-items: safe center; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
   .zone { width: 100%; min-width: max-content; }
   .zone-name { text-align: center; font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--ink-soft); margin-bottom: 9px; letter-spacing: 0.04em; }
   .zone-name b { color: var(--c); font-style: normal; font-weight: 600; }
@@ -281,7 +281,8 @@
     .seatmap, .form-card { padding: 26px 20px; }
     .stage { max-width: 100%; }
     .zone-legend { grid-template-columns: 1fr; gap: 10px; }
-    .seatchart { gap: 18px; }
+    .seatchart { gap: 18px; scroll-snap-type: none; }
+    .chart-hint::after { content: " \2194"; opacity: 0.6; }
     .seat { width: 24px; height: 24px; }
     .seat-states { gap: 16px; }
     .seat-controls { flex-direction: column; align-items: stretch; }
