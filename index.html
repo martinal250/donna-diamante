@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donna Diamante — I AM A WOMAN FIRST Live 2026 · Messina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #12122a;
+    --navy-2: #1a1a3a;
+    --navy-card: #20203f;
+    --cream: #f5f0e8;
+    --cream-2: #ece4d6;
+    --gold: #c5a25c;
+    --gold-bright: #e0c489;
+    --ink: #23232e;
+    --ink-soft: #5a5560;
+    --cream-soft: rgba(245,240,232,0.72);
+    --cream-faint: rgba(245,240,232,0.5);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --maxw: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  img { display: block; max-width: 100%; }
+
+  /* ---------- shared helpers ---------- */
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+
+  section { padding: 110px 0; position: relative; }
+  .band-dark { background: var(--navy); color: var(--cream); }
+  .band-cream { background: var(--cream); color: var(--ink); }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--gold);
+    margin: 0 0 26px;
+  }
+  .eyebrow::before { content: "\2666"; font-size: 9px; opacity: 0.9; }
+
+  h1, h2, h3 { font-weight: 400; margin: 0; }
+
+  .display {
+    font-family: var(--serif);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -0.005em;
+  }
+  .italic-gold {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--gold);
+  }
+
+  .lead { font-size: 20px; line-height: 1.75; }
+
+  .diamond { color: var(--gold); }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    padding: 17px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+    color: #2b2310;
+    box-shadow: 0 12px 30px -12px rgba(197,162,92,0.65);
+  }
+  .btn-gold:hover { box-shadow: 0 16px 36px -12px rgba(197,162,92,0.8); }
+  .btn-dark {
+    background: #15151c;
+    color: var(--cream);
+  }
+  .btn-dark:hover { background: #000; }
+  .btn-lg { font-size: 18px; padding: 21px 42px; }
+  .btn-ghost-light {
+    background: transparent;
+    color: var(--cream);
+    border-color: rgba(245,240,232,0.35);
+  }
+  .btn-ghost-light:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ---------- navbar ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(245,240,232,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--cream-2);
+  }
+  .nav-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 15px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .nav-logo img { width: min(270px, 50vw); height: auto; }
+  .nav .btn { padding: 13px 24px; font-size: 14.5px; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    background: var(--navy);
+    color: var(--cream);
+    text-align: center;
+    padding: 120px 0 96px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url('photo-hero.jpg');
+    background-size: cover;
+    background-position: center 62%;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(18,18,42,0.62) 0%, rgba(18,18,42,0.48) 42%, rgba(18,18,42,0.86) 100%);
+  }
+  .hero .wrap { position: relative; z-index: 2; }
+  .hero-logo { width: min(620px, 84vw); margin: 0 auto 8px; }
+  .hero-sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(44px, 7vw, 78px);
+    color: var(--gold-bright);
+    line-height: 1;
+    margin: 6px 0 0;
+  }
+  .hero-tag {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(26px, 3.6vw, 40px);
+    color: var(--cream);
+    line-height: 1.3;
+    max-width: 24ch;
+    margin: 40px auto 0;
+    text-wrap: balance;
+  }
+  .hero-meta {
+    margin: 44px 0 0;
+    font-size: 14px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--cream-soft);
+    line-height: 2;
+  }
+  .hero-meta .v { color: var(--cream); }
+  .hero-price {
+    margin: 26px 0 34px;
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--cream);
+  }
+  .hero-price b { color: var(--gold-bright); font-weight: 600; }
+  .countdown {
+    margin-top: 34px;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream-faint);
+    font-weight: 600;
+  }
+  .countdown b { color: var(--gold); }
+
+  /* ---------- manifesto ---------- */
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .manifesto-img {
+    aspect-ratio: 3/4;
+    background: var(--cream-2) center/cover;
+    border-radius: 4px;
+    box-shadow: 0 30px 60px -30px rgba(35,35,46,0.4);
+  }
+  .manifesto-body p {
+    font-family: var(--serif);
+    font-size: clamp(26px, 2.6vw, 34px);
+    line-height: 1.4;
+    margin: 0 0 0.7em;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .manifesto-body em { font-style: italic; color: var(--gold); }
+  .manifesto-body .small {
+    font-family: var(--sans);
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin-top: 1.4em;
+  }
+
+  /* ---------- programma / timeline ---------- */
+  .section-head { max-width: 760px; }
+  .section-head h2 { font-size: clamp(40px, 5vw, 62px); }
+  .timeline {
+    margin-top: 64px;
+    display: grid;
+    gap: 0;
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 34px 0;
+    border-top: 1px solid var(--cream-2);
+    align-items: start;
+  }
+  .tl-item:last-child { border-bottom: 1px solid var(--cream-2); }
+  .tl-time {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--ink);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .tl-time::before { content: "\2666"; color: var(--gold); font-size: 14px; }
+  .tl-title { font-family: var(--serif); font-size: 30px; font-weight: 500; line-height: 1.2; margin: 0 0 8px; }
+  .tl-desc { color: var(--ink-soft); font-size: 17px; margin: 0; }
+  .tl-photo {
+    margin: 22px 0 4px;
+    aspect-ratio: 16/9;
+    background: var(--cream-2) center/cover;
+    border-radius: 4px;
+    max-width: 560px;
+  }
+  .tl-note {
+    margin-top: 56px;
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(24px, 3vw, 34px);
+    color: var(--ink);
+    background: var(--cream-2);
+    padding: 40px 48px;
+    border-radius: 6px;
+  }
+  .tl-note .diamond { font-style: normal; }
+
+  /* ---------- testimonials (dark) ---------- */
+  .center-head { text-align: center; max-width: 820px; margin: 0 auto; }
+  .center-head h2 { font-size: clamp(38px, 4.6vw, 58px); line-height: 1.1; }
+  .center-head .kpi {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(24px, 3vw, 34px);
+    color: var(--gold-bright);
+    margin: 22px 0 0;
+  }
+  .quotes {
+    margin: 72px 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .quote {
+    border-top: 1px solid rgba(245,240,232,0.18);
+    padding-top: 28px;
+  }
+  .quote p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.4;
+    color: var(--cream);
+    margin: 0 0 16px;
+  }
+  .quote .who {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .quote-cta { text-align: center; margin-top: 60px; }
+  .quote-cta a {
+    color: var(--cream); text-decoration: none; font-weight: 600;
+    font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase;
+    border-bottom: 1px solid var(--gold); padding-bottom: 6px;
+    transition: color .18s ease;
+  }
+  .quote-cta a:hover { color: var(--gold-bright); }
+
+  /* ---------- photo band (movimento cresce / closing) ---------- */
+  .photo-band {
+    position: relative;
+    color: var(--cream);
+    text-align: center;
+    overflow: hidden;
+  }
+  .photo-band .bg {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center 40%;
+  }
+  .photo-band .ov {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(18,18,42,0.86), rgba(18,18,42,0.74));
+  }
+  .photo-band .wrap { position: relative; z-index: 2; }
+  .photo-band h2 { font-size: clamp(40px, 5.5vw, 72px); line-height: 1.05; }
+  .photo-band .copy {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.45;
+    max-width: 22ch;
+    margin: 28px auto 0;
+    color: var(--cream-soft);
+  }
+
+  /* ---------- come partecipare ---------- */
+  .steps { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 60px; }
+  .step {
+    background: var(--navy-card);
+    border: 1px solid rgba(245,240,232,0.1);
+    border-radius: 8px;
+    padding: 44px;
+  }
+  .step-n {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .step h3 { font-family: var(--serif); font-size: 32px; font-weight: 500; margin: 0 0 14px; }
+  .step p { color: var(--cream-soft); margin: 0 0 10px; font-size: 17px; }
+  .price-big { font-family: var(--serif); font-size: 30px; color: var(--gold-bright); font-weight: 600; }
+  .scarcity {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 14px;
+    font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
+    color: #e8b9b9;
+  }
+  .scarcity::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #d98a8a; box-shadow: 0 0 0 4px rgba(217,138,138,0.18); }
+  .upsell-list { list-style: none; padding: 0; margin: 18px 0 0; }
+  .upsell-list li {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+    padding: 14px 0; border-top: 1px solid rgba(245,240,232,0.12);
+    font-size: 17px;
+  }
+  .upsell-list li .nm { color: var(--cream); }
+  .upsell-list li .pr { font-family: var(--serif); font-size: 22px; color: var(--gold-bright); font-weight: 600; white-space: nowrap; }
+
+  /* ---------- upsell cards ---------- */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 26px 50px -34px rgba(35,35,46,0.45);
+    display: flex; flex-direction: column;
+  }
+  .card-img { aspect-ratio: 4/3; background: var(--cream-2) center/cover; position: relative; }
+  .card-badge {
+    position: absolute; top: 16px; left: 16px;
+    background: rgba(18,18,42,0.86); color: var(--gold-bright);
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 7px 13px; border-radius: 999px;
+  }
+  .card-body { padding: 30px 30px 34px; display: flex; flex-direction: column; flex: 1; }
+  .card-body h3 { font-family: var(--serif); font-size: 28px; font-weight: 600; margin: 0 0 10px; }
+  .card-body p { color: var(--ink-soft); font-size: 16px; line-height: 1.6; margin: 0 0 22px; }
+  .card-foot { margin-top: auto; display: flex; align-items: baseline; justify-content: space-between; }
+  .card-foot .pr { font-family: var(--serif); font-size: 30px; font-weight: 600; color: var(--ink); }
+  .card-foot .pr small { font-size: 15px; color: var(--ink-soft); font-weight: 400; font-family: var(--sans); }
+  .card-foot .add { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+
+  /* ---------- soft opt-in ---------- */
+  .optin {
+    background: var(--cream-2);
+    border-radius: 10px;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 56px;
+    text-align: center;
+  }
+  .optin .eyebrow { justify-content: center; display: flex; }
+  .optin h2 { font-family: var(--serif); font-size: clamp(30px, 3.6vw, 42px); font-weight: 500; line-height: 1.2; }
+  .optin p { color: var(--ink-soft); max-width: 48ch; margin: 18px auto 32px; font-size: 18px; }
+  .optin-form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
+  .optin-form input {
+    flex: 1; min-width: 0;
+    font-family: var(--sans); font-size: 16px;
+    padding: 16px 20px; border-radius: 999px;
+    border: 1px solid #d8cfbf; background: #fff; color: var(--ink);
+  }
+  .optin-form input:focus { outline: none; border-color: var(--gold); }
+
+  /* ---------- per chi è (dark list) ---------- */
+  .forwhom { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 60px; align-items: start; }
+  .forwhom h2 { font-size: clamp(38px, 4.6vw, 56px); line-height: 1.08; }
+  .whom-list { list-style: none; margin: 0; padding: 0; }
+  .whom-list li {
+    display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start;
+    padding: 24px 0; border-top: 1px solid rgba(245,240,232,0.16);
+    font-size: 20px; line-height: 1.5; color: var(--cream);
+  }
+  .whom-list li:last-child { border-bottom: 1px solid rgba(245,240,232,0.16); }
+  .whom-list li::before { content: "\2666"; color: var(--gold); font-size: 16px; line-height: 1.6; }
+
+  /* ---------- FAQ ---------- */
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 48px; margin-top: 56px; }
+  .faq-grid details {
+    border-bottom: 1px solid var(--cream-2);
+    padding: 6px 0;
+  }
+  .faq-grid summary {
+    list-style: none; cursor: pointer;
+    font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--ink);
+    padding: 18px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .faq-grid summary::-webkit-details-marker { display: none; }
+  .faq-grid summary::after { content: "+"; color: var(--gold); font-size: 26px; font-weight: 300; transition: transform .2s ease; }
+  .faq-grid details[open] summary::after { transform: rotate(45deg); }
+  .faq-grid details p { margin: 0 0 20px; color: var(--ink-soft); font-size: 17px; line-height: 1.65; max-width: 46ch; }
+
+  /* ---------- closing ---------- */
+  .closing { padding: 150px 0; }
+  .closing .countdown { margin-top: 38px; }
+
+  /* ---------- footer ---------- */
+  footer { background: var(--navy); color: var(--cream-soft); padding: 70px 0 56px; border-top: 1px solid rgba(245,240,232,0.1); }
+  .foot-inner { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-start; }
+  .foot-logo img { width: 240px; }
+  .foot-tag { font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--cream-soft); margin: 18px 0 0; max-width: 30ch; }
+  .foot-cols { display: flex; gap: 64px; }
+  .foot-col h4 { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin: 0 0 16px; font-weight: 700; }
+  .foot-col a, .foot-col span { display: block; color: var(--cream-soft); text-decoration: none; font-size: 15px; line-height: 2.1; }
+  .foot-col a:hover { color: var(--gold-bright); }
+  .foot-bottom { margin-top: 54px; padding-top: 26px; border-top: 1px solid rgba(245,240,232,0.1); font-size: 13px; color: var(--cream-faint); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px) {
+    section { padding: 76px 0; }
+    .wrap { padding: 0 22px; }
+    .manifesto-grid { grid-template-columns: 1fr; gap: 40px; }
+    .manifesto-img { aspect-ratio: 16/10; max-width: 420px; }
+    .tl-item { grid-template-columns: 1fr; gap: 8px; }
+    .quotes { grid-template-columns: 1fr; gap: 8px; }
+    .quote { padding: 24px 0; }
+    .steps { grid-template-columns: 1fr; }
+    .cards { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+    .forwhom { grid-template-columns: 1fr; gap: 28px; }
+    .faq-grid { grid-template-columns: 1fr; gap: 0; }
+    .nav .btn span.long { display: none; }
+    .optin { padding: 44px 26px; }
+    .optin-form { flex-direction: column; }
+    .optin-form input, .optin-form .btn { width: 100%; justify-content: center; }
+    .foot-inner { flex-direction: column; }
+    .foot-cols { gap: 48px; flex-wrap: wrap; }
+  }
+  @media (max-width: 520px) {
+    body { font-size: 17px; }
+    .nav-logo img { width: 200px; }
+    .step { padding: 30px 26px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#top" aria-label="I Am A Woman First">
+        <img src="iaawf-logo-dark.png" alt="I AM A WOMAN FIRST live 2026">
+      </a>
+      <a class="btn btn-dark" href="#partecipare">Crea la tua esperienza</a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" id="top" data-screen-label="Hero">
+    <div class="wrap">
+      <img class="hero-logo" src="iaawf-logo.png" alt="I AM A WOMAN FIRST live 2026">
+      <div class="hero-sub">Donna Diamante</div>
+      <p class="hero-tag">&ldquo;Quando la luce ci incontra, brilliamo insieme.&rdquo;</p>
+      <p class="hero-meta">
+        <span class="v">Messina &mdash; 13 Giugno 2026</span><br>
+        Teatro Vittorio Emanuele II
+      </p>
+      <p class="hero-price">a partire da <b>129&euro;</b> a persona</p>
+      <a class="btn btn-gold btn-lg" href="#partecipare">&rarr;&nbsp;Crea la tua esperienza</a>
+      <p class="countdown">Mancano <b data-countdown>&mdash;</b> giorni</p>
+    </div>
+  </header>
+
+  <!-- ===================== MANIFESTO ===================== -->
+  <section class="band-cream" data-screen-label="Manifesto">
+    <div class="wrap manifesto-grid">
+      <div class="manifesto-img" style="background-image:url('photo-manifesto.jpg'); background-position: center 40%;"></div>
+      <div class="manifesto-body">
+        <span class="eyebrow">Il Manifesto</span>
+        <p>Un diamante non ha una sola faccia. Ha sfaccettature. Riflette la luce in mille modi diversi, e proprio per questo non smette mai di brillare.</p>
+        <p><em>Cos&igrave; siamo noi.</em></p>
+        <p class="small">I AM A WOMAN FIRST Live 2026 nasce per questo. Per celebrare ciò che siamo. Insieme. Non una sola versione di donna, ma tutte le donne che possiamo essere, in un solo pomeriggio.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROGRAMMA ===================== -->
+  <section class="band-cream" style="padding-top:0;" data-screen-label="Programma">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Il Programma</span>
+        <h2 class="display">Un pomeriggio da vivere.<br>Insieme.</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">15.00&ndash;16.00</div>
+          <div>
+            <h3 class="tl-title">Accoglienza &amp; Red Carpet</h3>
+            <p class="tl-desc">Si entra come ci si sente: protagoniste. Un benvenuto pensato per farti sentire attesa fin dal primo passo.</p>
+            <div class="tl-photo" style="background-image:url('photo-redcarpet.jpg');"></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">16.00&ndash;18.00</div>
+          <div>
+            <h3 class="tl-title">Energia e Condivisione</h3>
+            <p class="tl-desc">Lo show dal vivo con Carolyn Smith e il suo corpo di ballo sul palco. Due ore di emozione, racconto e movimento.</p>
+            <div class="tl-photo" style="background-image:url('photo-carolyn.jpg');"></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">18.00&ndash;19.30</div>
+          <div>
+            <h3 class="tl-title">Si balla!</h3>
+            <p class="tl-desc">Il finale &egrave; tutto per noi. La pista si apre e la musica non si ferma: solo donne, una sola energia.</p>
+            <div class="tl-photo" style="background-image:url('photo-balla.jpg');"></div>
+          </div>
+        </div>
+      </div>
+      <p class="tl-note">Puoi prenotare per te e fino a 4 amiche, scegliendo i posti insieme <span class="diamond">&#128142;</span></p>
+    </div>
+  </section>
+
+  <!-- ===================== SOCIAL PROOF EVENTO 1 ===================== -->
+  <section class="band-dark" data-screen-label="Social proof">
+    <div class="wrap">
+      <div class="center-head">
+        <span class="eyebrow" style="justify-content:center;display:flex;">Abano Terme &middot; Evento 1</span>
+        <h2 class="display">Ad Abano Terme &egrave; successo<br>qualcosa di speciale.</h2>
+        <p class="kpi">253 donne. Una sola energia.</p>
+      </div>
+      <div class="quotes">
+        <div class="quote">
+          <p>&ldquo;Sono tornata a casa diversa.&rdquo;</p>
+          <span class="who">Partecipante &middot; Abano</span>
+        </div>
+        <div class="quote">
+          <p>&ldquo;Non sapevo cosa aspettarmi. Ora so che ci torner&ograve;.&rdquo;</p>
+          <span class="who">Partecipante &middot; Abano</span>
+        </div>
+        <div class="quote">
+          <p>&ldquo;Sono arrivata da sola. Sono ripartita con delle amiche.&rdquo;</p>
+          <span class="who">Partecipante &middot; Abano</span>
+        </div>
+      </div>
+      <div class="quote-cta">
+        <a href="#movimento">Scopri il prossimo appuntamento &darr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== IL MOVIMENTO CRESCE ===================== -->
+  <section class="photo-band" id="movimento" data-screen-label="Il movimento cresce">
+    <div class="bg" style="background-image:url('photo-hero.jpg');"></div>
+    <div class="ov"></div>
+    <div class="wrap" style="padding-top:120px;padding-bottom:120px;">
+      <span class="eyebrow" style="justify-content:center;display:flex;">Il Movimento</span>
+      <h2 class="display">Il Movimento cresce.<br><span class="italic-gold">E si avvicina.</span></h2>
+      <p class="copy">I AM A WOMAN FIRST Live arriva a Messina. La stessa energia. Pi&ugrave; vicina a te.</p>
+    </div>
+  </section>
+
+  <!-- ===================== COME PARTECIPARE ===================== -->
+  <section class="band-dark" id="partecipare" data-screen-label="Come partecipare">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Come partecipare</span>
+        <h2 class="display">Come partecipare a<br><span class="italic-gold">Donna Diamante</span> 2026</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-n">Passo 1</div>
+          <h3>Prenota il tuo posto</h3>
+          <p>Assicurati il tuo posto in sala. Si parte da:</p>
+          <div class="price-big">119€ a persona</div>
+          <div class="scarcity">37 posti ancora disponibili</div>
+        </div>
+        <div class="step">
+          <div class="step-n">Passo 2</div>
+          <h3>Personalizza la tua esperienza</h3>
+          <p>Aggiungi i momenti che vuoi vivere ancora pi&ugrave; da vicino:</p>
+          <ul class="upsell-list">
+            <li><span class="nm">Lezione di danza</span><span class="pr">+20&euro;</span></li>
+            <li><span class="nm">Meet &amp; greet con Carolyn</span><span class="pr">+80&euro;</span></li>
+            <li><span class="nm">Cena con Carolyn</span><span class="pr">+130&euro;</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:48px;">
+        <a class="btn btn-gold btn-lg" href="prenota.html">&rarr;&nbsp;Prenota il tuo posto</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== UPSELL CARDS ===================== -->
+  <section class="band-cream" data-screen-label="Esperienze">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Le Esperienze</span>
+        <h2 class="display">Vuoi vivere <span class="italic-gold">Donna Diamante</span><br>ancora pi&ugrave; da vicino?</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-img" style="background-image:url('photo-dance.jpg');">
+            <span class="card-badge">12 posti rimasti</span>
+          </div>
+          <div class="card-body">
+            <h3>Lezione di Danza</h3>
+            <p>Un&rsquo;ora sul palco con il corpo di ballo di Carolyn Smith. Nessuna esperienza richiesta: solo voglia di muoverti.</p>
+            <div class="card-foot">
+              <div class="pr">20&euro; <small>/ persona</small></div>
+              <div class="add">AGGIUNGI</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img" style="background-image:url('photo-meet.jpg');">
+            <span class="card-badge">8 posti rimasti</span>
+          </div>
+          <div class="card-body">
+            <h3>Momento di Incontro</h3>
+            <p>Un meet &amp; greet riservato con Carolyn Smith. Due parole, una foto, un ricordo che resta.</p>
+            <div class="card-foot">
+              <div class="pr">80&euro; <small>/ persona</small></div>
+              <div class="add">AGGIUNGI</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img" style="background-image:url('photo-dinner.jpg');">
+            <span class="card-badge">ESAURITO</span>
+          </div>
+          <div class="card-body">
+            <h3>Cena esclusiva</h3>
+            <p>Una cena intima con Carolyn Smith dopo lo show. Pochi posti, tanta intimit&agrave; e una serata da ricordare.</p>
+            <div class="card-foot">
+              <div class="pr">130&euro; <small>/ persona</small></div>
+              <div class="add">AGGIUNGI</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOFT OPT-IN ===================== -->
+  <section class="band-cream" style="padding-top:0;" data-screen-label="Opt-in">
+    <div class="wrap">
+      <div class="optin">
+        <span class="eyebrow">Resta in contatto</span>
+        <h2>Non sei ancora pronta a prenotare?</h2>
+        <p>Lascia la tua email e ti avvisiamo in anteprima se si liberano posti o ci sono novit&agrave; sull&rsquo;evento. Nessuna fretta.</p>
+        <form class="optin-form" onsubmit="return false;">
+          <input type="email" placeholder="La tua email" aria-label="La tua email">
+          <button class="btn btn-dark" type="submit">Tienimi aggiornata</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PER CHI È ===================== -->
+  <section class="band-dark" data-screen-label="Per chi è">
+    <div class="wrap forwhom">
+      <div>
+        <span class="eyebrow">A chi parla</span>
+        <h2 class="display">Per chi &egrave;<br><span class="italic-gold">Donna Diamante</span></h2>
+      </div>
+      <ul class="whom-list">
+        <li>Hai gi&agrave; vissuto IAAWF e vuoi ritrovare quell&rsquo;energia.</li>
+        <li>Non hai mai partecipato, ma senti che &egrave; il momento.</li>
+        <li>Ami la danza come emozione, non come tecnica.</li>
+        <li>Vuoi un pomeriggio elegante e leggero, tutto per te.</li>
+        <li>Vieni con un’amica, o anche da sola.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="band-cream" data-screen-label="FAQ">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Domande frequenti</span>
+        <h2 class="display">Tutto quello che<br>vuoi sapere.</h2>
+      </div>
+      <div class="faq-grid">
+        <details>
+          <summary>Posso venire da sola?</summary>
+          <p>Assolutamente s&igrave;. Molte donne arrivano da sole e ripartono con nuove amiche: &egrave; parte della magia di questa giornata.</p>
+        </details>
+        <details>
+          <summary>Posso prenotare per le mie amiche?</summary>
+          <p>Certo. Puoi prenotare per te e fino a 4 amiche, scegliendo i posti insieme in un&rsquo;unica prenotazione.</p>
+        </details>
+        <details>
+          <summary>Devo saper ballare?</summary>
+          <p>No. Qui la danza &egrave; emozione, non tecnica. Ci si muove per il piacere di farlo, ognuna al proprio ritmo.</p>
+        </details>
+        <details>
+          <summary>C&rsquo;&egrave; un dress code?</summary>
+          <p>Nessun obbligo. Vestiti come ti fa sentire bella e a tuo agio: l&rsquo;eleganza qui &egrave; libera.</p>
+        </details>
+        <details>
+          <summary>Quanto dura l&rsquo;evento?</summary>
+          <p>Dalle 15.00 alle 19.30: accoglienza, show dal vivo e party finale. Un pomeriggio intero pensato per te.</p>
+        </details>
+        <details>
+          <summary>Posso aggiungere le esperienze in un secondo momento?</summary>
+          <p>S&igrave;. Puoi prenotare ora il tuo posto e aggiungere lezione di danza, meet &amp; greet o cena in seguito, fino a esaurimento posti.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CLOSING CTA ===================== -->
+  <section class="photo-band closing" data-screen-label="Closing">
+    <div class="bg" style="background-image:url('photo-hero.jpg');background-position:center 30%;"></div>
+    <div class="ov" style="background:linear-gradient(180deg, rgba(18,18,42,0.82), rgba(18,18,42,0.9));"></div>
+    <div class="wrap">
+      <h2 class="display" style="font-size:clamp(52px,8vw,104px);"><span class="italic-gold">La luce non aspetta.</span></h2>
+      <p class="copy">Donna Diamante 2026 &egrave; un appuntamento che non puoi perdere.</p>
+      <div style="margin-top:42px;">
+        <a class="btn btn-gold btn-lg" href="prenota.html">Prenota ora</a>
+      </div>
+      <p class="countdown">Mancano <b data-countdown>&mdash;</b> giorni al 13 giugno</p>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-inner">
+        <div>
+          <div class="foot-logo"><img src="iaawf-logo.png" alt="I AM A WOMAN FIRST live 2026"></div>
+          <p class="foot-tag">Siamo donne. E prima di tutto, siamo gi&agrave; tutto. <span class="diamond">&#128142;</span></p>
+        </div>
+        <div class="foot-cols">
+          <div class="foot-col">
+            <h4>L&rsquo;evento</h4>
+            <a href="#movimento">Donna Diamante 2026</a>
+            <a href="#partecipare">Come partecipare</a>
+            <span>Teatro Vittorio Emanuele II</span>
+            <span>Messina &middot; 13 Giugno 2026</span>
+          </div>
+          <div class="foot-col">
+            <h4>Contatti</h4>
+            <a href="mailto:team@iamawomanfirst.com">team@iamawomanfirst.com</a>
+            <a href="#optin">Resta aggiornata</a>
+            <span>Sensual Dance Fit</span>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; 2026 I Am A Woman First &mdash; Sensual Dance Fit. Tutti i diritti riservati.</span>
+        <span>Privacy &middot; Termini</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var target = new Date(2026, 5, 13, 0, 0, 0); // 13 June 2026
+      function update() {
+        var now = new Date();
+        var diff = target - now;
+        var days = Math.max(0, Math.ceil(diff / 86400000));
+        document.querySelectorAll('[data-countdown]').forEach(function (el) {
+          el.textContent = days;
+        });
+      }
+      update();
+      setInterval(update, 60000);
+    })();
+  </script>
+</body>
+</html>

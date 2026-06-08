@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prenota · Donna Diamante — Messina 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d0d1a;
+    --navy-2: #14142a;
+    --navy-card: #1c1c38;
+    --cream: #f2ede4;
+    --cream-2: #e7dfd0;
+    --gold: #c9a87c;
+    --gold-bright: #e2c79a;
+    --gold-deep: #b08c54;
+    --ink: #20202c;
+    --ink-soft: #5a5560;
+    --cream-soft: rgba(242,237,228,0.74);
+    --cream-faint: rgba(242,237,228,0.5);
+    --danger: #d98a8a;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --maxw: 940px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  img { display: block; max-width: 100%; }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+
+  .step-section { padding: 96px 0; scroll-margin-top: 90px; }
+  .band-dark { background: var(--navy); color: var(--cream); }
+  .band-cream { background: var(--cream); color: var(--ink); }
+
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 11px; color: var(--gold); margin: 0 0 20px;
+  }
+  .eyebrow::before { content: "\2666"; font-size: 9px; }
+  .eyebrow .num { font-family: var(--serif); font-style: italic; font-size: 15px; letter-spacing: 0; }
+
+  h1, h2, h3 { font-weight: 400; margin: 0; }
+  .title { font-family: var(--serif); font-weight: 500; font-size: clamp(38px, 5vw, 56px); line-height: 1.05; letter-spacing: -0.005em; }
+  .subtitle { font-family: var(--serif); font-style: italic; font-size: clamp(20px, 2.4vw, 26px); color: var(--ink-soft); margin: 14px 0 0; }
+  .band-dark .subtitle { color: var(--cream-soft); }
+  .subtitle.gold { color: var(--gold); }
+  .diamond { color: var(--gold); }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    font-family: var(--sans); font-weight: 600; font-size: 16px; letter-spacing: 0.01em;
+    padding: 17px 36px; border-radius: 999px; text-decoration: none; cursor: pointer;
+    border: 1px solid transparent; transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-gold { background: linear-gradient(135deg, var(--gold-bright), var(--gold)); color: #2b2310; box-shadow: 0 12px 30px -12px rgba(201,168,124,0.6); }
+  .btn-gold:hover { box-shadow: 0 16px 36px -12px rgba(201,168,124,0.8); }
+  .btn-lg { font-size: 18px; padding: 21px 46px; }
+  .btn-block { width: 100%; }
+  .step-cta { margin-top: 44px; }
+
+  .link-skip {
+    display: inline-block; margin-top: 26px;
+    color: inherit; opacity: 0.7; text-decoration: none;
+    font-size: 15px; font-weight: 600; letter-spacing: 0.02em;
+    border-bottom: 1px solid currentColor; padding-bottom: 3px;
+  }
+  .link-skip:hover { opacity: 1; color: var(--gold); }
+
+  /* ---------- header ---------- */
+  .head {
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(242,237,228,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--cream-2);
+  }
+  .head-inner {
+    max-width: 1160px; margin: 0 auto; padding: 14px 32px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .head-logo img { width: min(240px, 46vw); height: auto; }
+
+  .progress { display: flex; align-items: center; gap: 0; }
+  .pstep { display: flex; align-items: center; gap: 11px; }
+  .pdot {
+    width: 34px; height: 34px; border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: var(--serif); font-size: 18px; font-weight: 600;
+    border: 1.5px solid #cabfab; color: var(--ink-soft); background: transparent;
+    transition: all .25s ease; flex: none;
+  }
+  .plabel { font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: var(--ink-soft); white-space: nowrap; }
+  .pline { width: 30px; height: 1.5px; background: #cabfab; margin: 0 14px; flex: none; }
+  .pstep.active .pdot { background: var(--gold); border-color: var(--gold); color: #2b2310; box-shadow: 0 0 0 4px rgba(201,168,124,0.2); }
+  .pstep.active .plabel { color: var(--ink); }
+  .pstep.done .pdot { background: var(--navy); border-color: var(--navy); color: var(--gold-bright); }
+  .pstep.done .pdot::before { content: "\2713"; font-family: var(--sans); font-size: 15px; }
+  .pstep.done .pdot .n { display: none; }
+
+  /* ---------- step 1 : seat map ---------- */
+  .seatmap {
+    margin-top: 52px;
+    background: #fff;
+    border: 1px solid var(--cream-2);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 24px 50px -36px rgba(32,32,44,0.4);
+  }
+  .stage {
+    text-align: center; margin: 0 auto 30px; max-width: 60%;
+    background: var(--navy); color: var(--gold-bright);
+    font-family: var(--serif); font-style: italic; font-size: 19px;
+    padding: 12px; border-radius: 4px; letter-spacing: 0.04em;
+  }
+  /* zone legend (prices key) */
+  .zone-legend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 26px; }
+  .zleg { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid var(--cream-2); border-radius: 10px; background: #faf7f1; }
+  .zleg .sw { width: 15px; height: 15px; border-radius: 4px; background: var(--c); transform: rotate(45deg); flex: none; }
+  .zleg .zinfo { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .zleg .zn { font-family: var(--serif); font-size: 18px; font-weight: 600; line-height: 1.12; }
+  .zleg .zm { font-size: 12px; color: var(--ink-soft); }
+  .zleg .zp { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+
+  /* seat chart */
+  .chart-hint { text-align: center; font-size: 13.5px; color: var(--ink-soft); letter-spacing: 0.02em; margin: 0 0 18px; }
+  .seatchart { display: flex; flex-direction: column; gap: 22px; align-items: center; overflow-x: auto; padding-bottom: 8px; }
+  .zone { width: 100%; min-width: max-content; }
+  .zone-name { text-align: center; font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--ink-soft); margin-bottom: 9px; letter-spacing: 0.04em; }
+  .zone-name b { color: var(--c); font-style: normal; font-weight: 600; }
+  .seatrow { display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 5px; }
+  .rowlabel { width: 18px; font-size: 10.5px; color: var(--ink-soft); text-align: center; flex: none; font-weight: 700; letter-spacing: 0.02em; }
+  .aisle { width: 20px; flex: none; }
+  .seat {
+    width: 21px; height: 21px; border-radius: 5px; flex: none; cursor: pointer; padding: 0;
+    border: 1px solid color-mix(in srgb, var(--c) 55%, #fff);
+    background: color-mix(in srgb, var(--c) 17%, #fff);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .seat:hover:not(.occupied) { transform: translateY(-2px) scale(1.1); box-shadow: 0 4px 10px -3px rgba(0,0,0,0.3); }
+  .seat.occupied { background: #dcd5c6; border-color: #cfc7b6; cursor: not-allowed; opacity: 0.7; }
+  .seat.selected { background: var(--c); border-color: var(--c); box-shadow: 0 0 0 2px rgba(201,168,124,0.55), 0 5px 11px -3px rgba(0,0,0,0.4); }
+  .seatmap.maxed .seat:not(.selected):not(.occupied) { opacity: 0.4; cursor: not-allowed; }
+  .seatmap.maxed .seat:not(.selected):not(.occupied):hover { transform: none; box-shadow: none; }
+
+  /* seat-state legend */
+  .seat-states { display: flex; gap: 24px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
+  .seat-states span { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-soft); }
+  .seat-states i { width: 15px; height: 15px; border-radius: 4px; display: inline-block; }
+  .ss-av { background: color-mix(in srgb, #c9a87c 17%, #fff); border: 1px solid color-mix(in srgb, #c9a87c 55%, #fff); }
+  .ss-sel { background: var(--gold); }
+  .ss-occ { background: #dcd5c6; border: 1px solid #cfc7b6; }
+
+  /* qty + minisummary */
+  .seat-controls {
+    margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--cream-2);
+    display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  }
+  .qty-block { display: flex; align-items: center; gap: 20px; }
+  .qty { display: flex; align-items: center; gap: 6px; }
+  .qty button {
+    width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid #cabfab;
+    background: #fff; color: var(--ink); font-size: 22px; cursor: pointer; line-height: 1;
+    display: grid; place-items: center; transition: all .15s ease; font-family: var(--sans);
+  }
+  .qty button:hover:not(:disabled) { border-color: var(--gold); color: var(--gold-deep); }
+  .qty button:disabled { opacity: 0.35; cursor: not-allowed; }
+  .qty .qnum { font-family: var(--serif); font-size: 32px; font-weight: 600; min-width: 40px; text-align: center; }
+  .qty-note { font-size: 14px; color: var(--ink-soft); max-width: 22ch; }
+
+  .minisum {
+    font-family: var(--serif); font-size: 22px; color: var(--ink); text-align: right;
+  }
+  .minisum b { color: var(--gold-deep); font-weight: 600; }
+  .minisum .ms-line { font-size: 14px; font-family: var(--sans); color: var(--ink-soft); display: block; }
+
+  /* ---------- step 2 : add-on cards ---------- */
+  .addons { margin-top: 52px; display: grid; gap: 20px; }
+  .addon {
+    display: grid; grid-template-columns: 200px 1fr auto; align-items: stretch; gap: 0;
+    background: var(--navy-card); border: 1px solid rgba(242,237,228,0.1);
+    border-radius: 12px; overflow: hidden; transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .addon.on { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(201,168,124,0.25); }
+  .addon.sold { opacity: 0.66; }
+  .addon-img { background: #2a2a48 center/cover; min-height: 150px; }
+  .addon-body { padding: 26px 30px; display: flex; flex-direction: column; justify-content: center; }
+  .addon-body h3 { font-family: var(--serif); font-size: 28px; font-weight: 600; margin: 0 0 6px; }
+  .addon-body p { color: var(--cream-soft); font-size: 15px; line-height: 1.55; margin: 0 0 14px; max-width: 42ch; }
+  .addon-meta { display: flex; align-items: center; gap: 16px; }
+  .addon-price { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--gold-bright); }
+  .addon-stock { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream-faint); }
+  .badge-sold { background: rgba(217,138,138,0.16); color: var(--danger); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; }
+  .addon-toggle { display: flex; align-items: center; padding: 0 30px; }
+
+  .switch { position: relative; width: 60px; height: 34px; flex: none; cursor: pointer; }
+  .switch input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+  .switch .track {
+    position: absolute; inset: 0; background: #3a3a5c; border-radius: 999px; transition: background .2s ease;
+  }
+  .switch .knob {
+    position: absolute; top: 4px; left: 4px; width: 26px; height: 26px; border-radius: 50%;
+    background: #f2ede4; transition: transform .2s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+  .switch input:checked + .track { background: var(--gold); }
+  .switch input:checked + .track + .knob { transform: translateX(26px); }
+  .switch input:disabled { cursor: not-allowed; }
+  .switch input:disabled + .track { opacity: 0.4; }
+
+  /* ---------- step 3 : form ---------- */
+  .form-card {
+    margin-top: 52px; background: #fff; border: 1px solid var(--cream-2);
+    border-radius: 12px; padding: 44px; box-shadow: 0 24px 50px -36px rgba(32,32,44,0.4);
+  }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 28px; }
+  .field { display: flex; flex-direction: column; gap: 9px; }
+  .field label { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--ink); }
+  .field input {
+    font-family: var(--sans); font-size: 16px; padding: 15px 18px;
+    border: 1px solid #d6ccba; border-radius: 8px; background: #faf7f1; color: var(--ink);
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .field input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,124,0.18); background: #fff; }
+  .form-note { margin-top: 26px; font-size: 14.5px; color: var(--ink-soft); display: flex; align-items: flex-start; gap: 10px; }
+  .form-note .diamond { margin-top: 1px; }
+  /* dynamic per-guest blocks */
+  .guest-block { padding: 30px 0; border-top: 1px solid var(--cream-2); }
+  .guest-block:first-child { padding-top: 0; border-top: none; }
+  .guest-head { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+  .guest-head .gnum { width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: var(--gold-bright); display: grid; place-items: center; font-family: var(--serif); font-weight: 600; font-size: 18px; flex: none; }
+  .guest-head .gwho { font-family: var(--serif); font-size: 25px; font-weight: 600; display: block; line-height: 1.05; }
+  .guest-head .gseat { font-size: 13px; color: var(--ink-soft); letter-spacing: 0.02em; }
+  .guests-empty { color: var(--ink-soft); font-style: italic; font-family: var(--serif); font-size: 19px; margin: 0; }
+
+  /* ---------- step 4 : summary ---------- */
+  .summary {
+    margin-top: 52px; max-width: 600px;
+    border: 1px solid var(--gold); border-radius: 14px; padding: 40px 44px;
+    background: linear-gradient(180deg, rgba(201,168,124,0.06), rgba(201,168,124,0)); 
+  }
+  .sum-row { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 16px 0; border-bottom: 1px solid rgba(242,237,228,0.12); }
+  .sum-row:first-child { padding-top: 0; }
+  .sum-row .l { font-size: 17px; color: var(--cream); }
+  .sum-row .l small { display: block; font-size: 13px; color: var(--cream-faint); margin-top: 2px; }
+  .sum-row .r { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--cream); white-space: nowrap; }
+  .sum-empty { color: var(--cream-faint); font-style: italic; font-family: var(--serif); font-size: 18px; }
+  .sum-total { display: flex; justify-content: space-between; align-items: baseline; margin-top: 22px; }
+  .sum-total .l { font-family: var(--serif); font-style: italic; font-size: 30px; color: var(--cream); }
+  .sum-total .r { font-family: var(--serif); font-size: 52px; font-weight: 600; color: var(--gold-bright); line-height: 1; }
+  .pay-note { margin-top: 22px; text-align: center; font-size: 13.5px; color: var(--cream-faint); display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .pay-note .diamond { color: var(--gold); }
+
+  footer { background: var(--navy); color: var(--cream-faint); padding: 40px 0; border-top: 1px solid rgba(242,237,228,0.08); text-align: center; font-size: 13px; }
+  footer a { color: var(--cream-soft); text-decoration: none; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 860px) {
+    .progress .plabel { display: none; }
+    .pline { width: 16px; margin: 0 8px; }
+  }
+  @media (max-width: 760px) {
+    .step-section { padding: 64px 0; }
+    .wrap { padding: 0 20px; }
+    .seatmap, .form-card { padding: 26px; }
+    .stage { max-width: 100%; }
+    .seat-controls { flex-direction: column; align-items: stretch; }
+    .minisum { text-align: left; }
+    .addon { grid-template-columns: 1fr; }
+    .addon-img { min-height: 170px; }
+    .addon-toggle { padding: 0 30px 26px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .summary { padding: 30px 26px; }
+    .sum-total .r { font-size: 42px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="head">
+    <div class="head-inner">
+      <a class="head-logo" href="index.html" aria-label="I Am A Woman First">
+        <img src="iaawf-logo-dark.png" alt="I AM A WOMAN FIRST live 2026">
+      </a>
+      <nav class="progress" id="progress" aria-label="Avanzamento prenotazione">
+        <div class="pstep active" data-step="1"><span class="pdot"><span class="n">1</span></span><span class="plabel">Posto</span></div>
+        <span class="pline"></span>
+        <div class="pstep" data-step="2"><span class="pdot"><span class="n">2</span></span><span class="plabel">Esperienze</span></div>
+        <span class="pline"></span>
+        <div class="pstep" data-step="3"><span class="pdot"><span class="n">3</span></span><span class="plabel">I tuoi dati</span></div>
+        <span class="pline"></span>
+        <div class="pstep" data-step="4"><span class="pdot"><span class="n">4</span></span><span class="plabel">Pagamento</span></div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== STEP 1 — POSTO ===================== -->
+  <section class="step-section band-cream" id="step1" data-screen-label="Step 1 · Posto">
+    <div class="wrap">
+      <span class="eyebrow"><span class="num">Passo 1 di 4</span></span>
+      <h2 class="title">Scegli il tuo posto</h2>
+      <p class="subtitle">Teatro Vittorio Emanuele II &middot; 987 posti</p>
+
+      <div class="seatmap" id="seatmap">
+        <div class="stage" style="background-color: rgb(28, 28, 56)"> Il palco </div>
+
+        <div class="zone-legend" id="zoneLegend"></div>
+
+        <p class="chart-hint">Tocca i posti liberi per scegliere dove sederti</p>
+        <div class="seatchart" id="seatchart"></div>
+
+        <div class="seat-states">
+          <span><i class="ss-av"></i> Disponibile</span>
+          <span><i class="ss-sel"></i> Selezionato</span>
+          <span><i class="ss-occ"></i> Occupato</span>
+        </div>
+
+        <div class="seat-controls">
+          <p class="qty-note" style="font-size: 18px; width: 400px">Puoi prenotare per te e fino a 4 amiche. 
+<b>
+Massimo 4 posti.</b></p>
+          <div class="minisum">
+            <span class="ms-line" id="ms-seats">Nessun posto selezionato</span>
+            <b id="ms-total">0&euro;</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-cta">
+        <a class="btn btn-gold btn-lg" href="#step2">Continua &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STEP 2 — ESPERIENZE ===================== -->
+  <section class="step-section band-dark" id="step2" data-screen-label="Step 2 · Esperienze">
+    <div class="wrap">
+      <span class="eyebrow"><span class="num">Passo 2 di 4</span></span>
+      <h2 class="title">Vuoi vivere <span class="italic-gold" style="font-style:italic;color:var(--gold)">Donna Diamante</span><br>ancora pi&ugrave; da vicino?</h2>
+      <p class="subtitle">Aggiungi le esperienze esclusive (puoi saltare questo step).</p>
+
+      <div class="addons">
+        <div class="addon" data-addon="Lezione di Danza" data-price="20">
+          <div class="addon-img" style="background-image:url('photo-dance.jpg');"></div>
+          <div class="addon-body">
+            <h3>Lezione di Danza</h3>
+            <p>Un&rsquo;ora sul palco con il corpo di ballo di Carolyn Smith. Nessuna esperienza richiesta.</p>
+            <div class="addon-meta">
+              <span class="addon-price">+20&euro;</span>
+              <span class="addon-stock">50 posti rimasti</span>
+            </div>
+          </div>
+          <div class="addon-toggle">
+            <label class="switch"><input type="checkbox" data-toggle><span class="track"></span><span class="knob"></span></label>
+          </div>
+        </div>
+
+        <div class="addon" data-addon="Momento di Incontro" data-price="80">
+          <div class="addon-img" style="background-image:url('photo-meet.jpg');"></div>
+          <div class="addon-body">
+            <h3>Momento di Incontro con Carolyn</h3>
+            <p>Un meet &amp; greet riservato con Carolyn Smith. Due parole, una foto, un ricordo che resta.</p>
+            <div class="addon-meta">
+              <span class="addon-price">+80&euro;</span>
+              <span class="addon-stock">20 posti rimasti</span>
+            </div>
+          </div>
+          <div class="addon-toggle">
+            <label class="switch"><input type="checkbox" data-toggle><span class="track"></span><span class="knob"></span></label>
+          </div>
+        </div>
+
+        <div class="addon sold" data-addon="Cena esclusiva" data-price="130">
+          <div class="addon-img" style="background-image:url('photo-dinner.jpg');"></div>
+          <div class="addon-body">
+            <h3>Cena esclusiva con Carolyn</h3>
+            <p>Una cena intima con Carolyn Smith dopo lo show. Pochi posti, tanta intimit&agrave;.</p>
+            <div class="addon-meta">
+              <span class="addon-price">+130&euro;</span>
+              <span class="badge-sold">Esaurito</span>
+            </div>
+          </div>
+          <div class="addon-toggle">
+            <label class="switch"><input type="checkbox" data-toggle disabled><span class="track"></span><span class="knob"></span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-cta">
+        <a class="btn btn-gold btn-lg" href="#step3">Continua &rarr;</a><br>
+        <a class="link-skip" href="#step3">Salta questo step &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STEP 3 — DATI ===================== -->
+  <section class="step-section band-cream" id="step3" data-screen-label="Step 3 · Dati">
+    <div class="wrap">
+      <span class="eyebrow"><span class="num">Passo 3 di 4</span></span>
+      <h2 class="title">Quasi fatta.</h2>
+      <p class="subtitle">Ci servono i dati di chi parteciper&agrave; per completare la prenotazione.</p>
+
+      <form class="form-card" onsubmit="return false;">
+        <div id="guestBlocks"></div>
+        <p class="form-note"><span class="diamond">&#9670;</span> Inserisci nome e cognome di ogni partecipante. Il riepilogo e la conferma arriveranno a te, come capogruppo.</p>
+      </form>
+
+      <div class="step-cta">
+        <a class="btn btn-gold btn-lg" href="#step4">Continua &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STEP 4 — RIEPILOGO ===================== -->
+  <section class="step-section band-dark" id="step4" data-screen-label="Step 4 · Pagamento">
+    <div class="wrap">
+      <span class="eyebrow"><span class="num">Passo 4 di 4</span></span>
+      <h2 class="title">Il tuo posto ti aspetta.</h2>
+      <p class="subtitle gold">Controlla il riepilogo e completa la prenotazione.</p>
+
+      <div class="summary">
+        <div id="sum-rows">
+          <!-- filled by JS -->
+        </div>
+        <div class="sum-total">
+          <span class="l">Totale</span>
+          <span class="r" id="grand-total">318&euro;</span>
+        </div>
+      </div>
+
+      <div class="step-cta">
+        <a class="btn btn-gold btn-lg btn-block" href="#step4" onclick="return false;">Conferma e paga</a>
+        <p class="pay-note"><span class="diamond">&#9670;</span> Pagamento sicuro &middot; Riceverai la conferma via email</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">&copy; 2026 I Am A Woman First &mdash; Sensual Dance Fit &middot; <a href="index.html">Torna all&rsquo;evento</a></div>
+  </footer>
+
+  <script>
+  (function () {
+    var MAX = 4;
+    var zones = [
+      { key: 'marilyn', name: 'Platea Marilyn Monroe', price: 159, color: '#c9a87c', remaining: 96,  rows: ['A','B','C','D'],            cols: 16 },
+      { key: 'sophia',  name: 'Platea Sophia Loren',  price: 139, color: '#8c9bb0', remaining: 154, rows: ['E','F','G','H','I'],        cols: 18 },
+      { key: 'grace',   name: 'Platea Grace Kelly',   price: 119, color: '#b08c9a', remaining: 208, rows: ['J','K','L','M','N'],        cols: 18 }
+    ];
+    var aisleAfter = { 16: 8, 18: 9 };
+
+    var selected = [];
+    var addons = [];
+
+    var chart = document.getElementById('seatchart');
+    var legend = document.getElementById('zoneLegend');
+    var seatmapEl = document.getElementById('seatmap');
+
+    function euro(n) { return n + '\u20ac'; }
+    function shortName(full) { return full.replace(/Platea\s+/, ''); }
+    // deterministic "occupied" pattern so the map looks real but stable
+    function isOccupied(zi, ri, c) {
+      var h = ((zi + 1) * 73856093) ^ ((ri + 3) * 19349663) ^ ((c + 7) * 83492791);
+      return (Math.abs(h) % 100) < 24;
+    }
+
+    // --- price legend ---
+    legend.innerHTML = zones.map(function (z) {
+      return '<div class="zleg" style="--c:' + z.color + '">' +
+        '<span class="sw"></span>' +
+        '<span class="zinfo"><span class="zn">' + z.name + '</span>' +
+        '<span class="zm">' + z.remaining + ' posti rimasti</span></span>' +
+        '<span class="zp">' + z.price + '\u20ac</span></div>';
+    }).join('');
+
+    // --- seat chart ---
+    zones.forEach(function (z, zi) {
+      var zone = document.createElement('div');
+      zone.className = 'zone';
+      zone.style.setProperty('--c', z.color);
+      zone.innerHTML = '<div class="zone-name"><b>' + z.name.replace(/\n/g, ' ') + '</b> &middot; ' + z.price + '\u20ac</div>';
+      var aisle = aisleAfter[z.cols];
+      z.rows.forEach(function (rl, ri) {
+        var row = document.createElement('div');
+        row.className = 'seatrow';
+        var l1 = document.createElement('span'); l1.className = 'rowlabel'; l1.textContent = rl; row.appendChild(l1);
+        for (var c = 1; c <= z.cols; c++) {
+          if (aisle && c === aisle + 1) {
+            var g = document.createElement('span'); g.className = 'aisle'; row.appendChild(g);
+          }
+          var seat = document.createElement('button');
+          seat.type = 'button';
+          seat.className = 'seat';
+          seat.dataset.id = z.key + '-' + rl + c;
+          seat.dataset.sector = z.name;
+          seat.dataset.price = z.price;
+          seat.dataset.label = rl + c;
+          seat.title = 'Fila ' + rl + ' \u00b7 Posto ' + c + ' \u2014 ' + z.name.replace(/\n/g, ' ');
+          if (isOccupied(zi, ri, c)) {
+            seat.classList.add('occupied');
+            seat.disabled = true;
+          } else {
+            seat.addEventListener('click', function () { toggleSeat(this); });
+          }
+          row.appendChild(seat);
+        }
+        var l2 = document.createElement('span'); l2.className = 'rowlabel'; l2.textContent = rl; row.appendChild(l2);
+        zone.appendChild(row);
+      });
+      chart.appendChild(zone);
+    });
+
+    function toggleSeat(el) {
+      var id = el.dataset.id;
+      var idx = selected.findIndex(function (s) { return s.id === id; });
+      if (idx >= 0) {
+        selected.splice(idx, 1);
+        el.classList.remove('selected');
+      } else {
+        if (selected.length >= MAX) return;
+        selected.push({ id: id, sector: el.dataset.sector, price: parseInt(el.dataset.price, 10), label: el.dataset.label });
+        el.classList.add('selected');
+      }
+      seatmapEl.classList.toggle('maxed', selected.length >= MAX);
+      syncAll();
+    }
+
+    function groupBySector() {
+      var groups = {}; var order = [];
+      selected.forEach(function (s) {
+        if (!groups[s.sector]) { groups[s.sector] = { price: s.price, labels: [] }; order.push(s.sector); }
+        groups[s.sector].labels.push(s.label);
+      });
+      return { groups: groups, order: order };
+    }
+
+    function syncMini() {
+      var total = selected.reduce(function (a, s) { return a + s.price; }, 0);
+      var line;
+      if (!selected.length) {
+        line = 'Nessun posto selezionato';
+      } else {
+        var gb = groupBySector();
+        line = gb.order.map(function (k) { return shortName(k) + ' ' + gb.groups[k].labels.join(', '); }).join(' \u00b7 ');
+      }
+      document.getElementById('ms-seats').textContent = line;
+      document.getElementById('ms-total').textContent = euro(total);
+    }
+
+    function syncSummary() {
+      var rows = document.getElementById('sum-rows');
+      var html = ''; var total = 0;
+      if (!selected.length) {
+        html += '<div class="sum-row"><span class="sum-empty">Nessun posto selezionato</span></div>';
+      } else {
+        var gb = groupBySector();
+        gb.order.forEach(function (k) {
+          var g = gb.groups[k]; var sub = g.price * g.labels.length; total += sub;
+          html += '<div class="sum-row"><span class="l">' + g.labels.length + (g.labels.length === 1 ? ' biglietto' : ' biglietti') +
+                  '<small>' + k + ' &middot; Fila ' + g.labels.join(', ') + ' &middot; ' + euro(g.price) + ' / posto</small></span>' +
+                  '<span class="r">' + euro(sub) + '</span></div>';
+        });
+      }
+      addons.forEach(function (a) {
+        html += '<div class="sum-row"><span class="l">' + a.name + '</span><span class="r">' + euro(a.price) + '</span></div>';
+        total += a.price;
+      });
+      rows.innerHTML = html;
+      document.getElementById('grand-total').textContent = euro(total);
+    }
+
+    function guestField(label, id, ph, ac, type) {
+      return '<div class="field"><label for="' + id + '">' + label + '</label>' +
+        '<input type="' + (type || 'text') + '" id="' + id + '" placeholder="' + ph + '" autocomplete="' + ac + '"></div>';
+    }
+
+    function renderGuests() {
+      var host = document.getElementById('guestBlocks');
+      if (!host) return;
+      var prev = {};
+      host.querySelectorAll('input').forEach(function (inp) { prev[inp.id] = inp.value; });
+      if (!selected.length) {
+        host.innerHTML = '<p class="guests-empty">Torna allo Step 1 e scegli i tuoi posti: qui inserirai i dati di chi partecipa.</p>';
+        return;
+      }
+      var html = '';
+      selected.forEach(function (s, i) {
+        var lead = i === 0;
+        var who = lead ? 'Tu &middot; Capogruppo' : 'Amica ' + (i + 1);
+        var seatTxt = shortName(s.sector).replace(/\n/g, ' ') + ' &middot; Fila ' + s.label;
+        html += '<div class="guest-block">' +
+          '<div class="guest-head"><span class="gnum">' + (i + 1) + '</span>' +
+          '<div><span class="gwho">' + who + '</span><span class="gseat">' + seatTxt + '</span></div></div>' +
+          '<div class="form-grid">' +
+          guestField('Nome', 'g' + i + '-nome', 'Nome', 'given-name') +
+          guestField('Cognome', 'g' + i + '-cognome', 'Cognome', 'family-name');
+        if (lead) {
+          html += guestField('Email', 'g' + i + '-email', 'nome@esempio.it', 'email', 'email') +
+                  guestField('Telefono', 'g' + i + '-tel', '+39 ___ _______', 'tel', 'tel');
+        }
+        html += '</div></div>';
+      });
+      host.innerHTML = html;
+      Object.keys(prev).forEach(function (id) { var el = document.getElementById(id); if (el) el.value = prev[id]; });
+    }
+
+    function syncAll() { syncMini(); syncSummary(); renderGuests(); }
+
+    // --- add-ons ---
+    document.querySelectorAll('.addon').forEach(function (card) {
+      var input = card.querySelector('input[data-toggle]');
+      if (!input || input.disabled) return;
+      input.addEventListener('change', function () {
+        card.classList.toggle('on', input.checked);
+        var name = card.dataset.addon;
+        var price = parseInt(card.dataset.price, 10);
+        if (input.checked) addons.push({ name: name, price: price });
+        else addons = addons.filter(function (a) { return a.name !== name; });
+        syncSummary();
+      });
+    });
+
+    // --- progress indicator follows scroll ---
+    var steps = Array.prototype.slice.call(document.querySelectorAll('#progress .pstep'));
+    var sections = ['step1','step2','step3','step4'].map(function (id) { return document.getElementById(id); });
+    function updateProgress() {
+      var mid = window.scrollY + window.innerHeight * 0.4;
+      var current = 0;
+      sections.forEach(function (sec, i) { if (sec.offsetTop <= mid) current = i; });
+      steps.forEach(function (st, i) {
+        st.classList.toggle('active', i === current);
+        st.classList.toggle('done', i < current);
+      });
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+
+    // --- preselect two adjacent Marilyn seats for continuity ---
+    (function () {
+      var avail = Array.prototype.slice.call(chart.querySelectorAll('.seat:not(.occupied)'))
+        .filter(function (s) { return s.dataset.id.indexOf('marilyn-') === 0; });
+      avail.slice(0, 2).forEach(function (s) { toggleSeat(s); });
+    })();
+
+    syncAll();
+    updateProgress();
+  })();
+  </script>
+</body>
+</html>
